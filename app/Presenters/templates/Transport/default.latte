@@ -1,0 +1,78 @@
+{block content}
+{control mathForm}
+<div class="row">
+{ifset $result}
+  <div class="col-6">
+  <h2>Phương pháp cực tiểu chi phí</h2>
+  {foreach $result as $k => $data}
+    <div class="card">
+    <div class="card-body">
+    <h2>Bước {$k}:</h2>
+    <table style="width:100%" class="table table-bordered">
+      {foreach $data[2] as $x => $cols}
+        {first}
+          <tr>
+            {var $thu = array_merge(['Phát/Thu'], $data[0])}
+            {foreach $thu as $e}
+              <td>{$e}</td>
+            {/foreach}
+          </tr>
+        {/first}
+        <tr>
+          {foreach $cols as $y => $col}
+            {first}
+              <td>{$data[1][$x]}</td>
+            {/first}
+            <td n:class="$col !== 'x' ? table-success, ($data[1][$x] == 0 || $data[0][$y] == 0) && $col == 'x' ? table-danger">
+              <h3>{$col}</h3>
+              <span class="badge bg-green float-right">{$in[$x][$y]}</span>
+            </td>
+          {/foreach}
+        </tr>
+      {/foreach}
+    </table>
+    </div>
+    </div>
+  {/foreach}
+  </div>
+{/ifset}
+
+<div class="col-6">
+{ifset $result2}
+  <h2>Phương pháp thế vị</h2>
+  {foreach $result2 as $k => $data}
+    <div class="card">
+    <div class="card-body">
+    <h2>Bước {$k}:</h2>
+    <table style="width:100%" class="table table-bordered">
+      {foreach $data[2] as $x => $cols}
+        {first}
+          <tr>
+            {var $thu = array_merge(['u/v'], $data[0])}
+            {foreach $thu as $e}
+              <td>{$e}</td>
+            {/foreach}
+          </tr>
+        {/first}
+        <tr>
+          {foreach $cols as $y => $col}
+            {first}
+              <td>{$data[1][$x]}</td>
+            {/first}
+            <td n:class="$col === 'T' ? table-primary, is_numeric($col) ? table-success, $col === 'L' ? table-danger">
+              <h3>{$col}</h3>
+              <span class="badge bg-green float-right">{$in[$x][$y]}</span>
+            </td>
+          {/foreach}
+        </tr>
+      {/foreach}
+    </table>
+    </div>
+    </div>
+  {/foreach}
+{/ifset}
+</div>
+</div>
+{ifset $total}
+  <div class="callout callout-success">Chi phí: {$total}</div>
+{/ifset}

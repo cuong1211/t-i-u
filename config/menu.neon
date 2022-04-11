@@ -1,0 +1,19 @@
+extensions:
+    menu: Contributte\MenuControl\DI\MenuExtension
+
+menu:
+    default:
+        templates:
+            breadcrumbs: %appDir%/Presenters/templates/breadcrumbs.latte
+        items:
+            Home:
+                action: 'Homepage:'
+                items:
+                    Dashboard:
+                        action: 'Homepage:'
+                        include: '^Homepage\:[a-zA-Z\:]+$'
+                    
+                    Chia đôi - Mặt cát vàng:
+                        action: 'Bisection:'
+                    Bài toán vận tải:
+                        action: 'Transport:'

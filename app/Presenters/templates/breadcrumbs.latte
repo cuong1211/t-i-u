@@ -1,0 +1,9 @@
+{foreach $menu->getPath() as $item}
+	<li n:class="breadcrumb-item, $iterator->last ? active">
+    {if !$iterator->last}
+      <a href="{$item->getRealLink()}">{$item->getRealTitle()}</a>
+    {else}
+      {$item->getRealTitle()}
+    {/if}
+  </li>
+{/foreach}

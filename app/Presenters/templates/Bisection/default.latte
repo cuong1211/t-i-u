@@ -1,0 +1,64 @@
+{block content}
+{control mathForm }
+{ifset $x}
+  <div class="callout callout-success">x = {$x}, Fmin = {$fmin}</div>
+  <div class="row">
+    <div class="col-sm">
+      <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Phương pháp chia đôi</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+      <table style="width:100%" class="table table-bordered">
+        <thead>
+          <tr>
+            <th><span class="badge bg-danger">A</span></td>
+            <th><span class="badge bg-success">B</span></td>
+            <th><span class="badge bg-primary">{count($chiadoi)}</span></td>
+          </tr>
+        </thead>
+        <tbody>
+        {foreach $chiadoi as $key => $value}
+          <tr>
+            <td>{$value[0]}</td>
+            <td>{$value[1]}</td>
+            <td>{$key + 1}</td>
+          </tr>
+        {/foreach}
+        </tbody>
+      </table>
+      </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Phương pháp mặt cát vàng</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+      <table style="width:100%" class="table table-bordered">
+        <thead>
+          <tr>
+            <th><span class="badge bg-danger">A</span></td>
+            <th><span class="badge bg-success">B</span></td>
+            <th><span class="badge bg-primary">{count($catvang)}</span></td>
+          </tr>
+        </thead>
+        <tbody>
+        {foreach $catvang as $key => $value}
+          <tr>
+            <td>{$value[0]}</td>
+            <td>{$value[1]}</td>
+            <td>{$key + 1}</td>
+          </tr>
+        {/foreach}
+        </tbody>
+      </table>
+      </div>
+      </div>
+    </div>
+  </div>
+{/ifset}
+{/block}

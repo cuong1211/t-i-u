@@ -1,0 +1,29 @@
+parameters:
+
+
+application:
+    errorPresenter: Error
+    mapping:
+        *: App\*Module\Presenters\*Presenter
+
+
+session:
+    expiration: 14 days
+
+
+di:
+    export:
+        parameters: no
+        tags: no
+
+security:
+    authentication:
+        cookieName: userToken
+        expiration: 30 days
+        storage: cookie
+
+services:
+    - App\Router\RouterFactory::createRouter
+    - App\Model\Authenticator
+    - App\Model\AuthorizatorFactory::create
+    redbean: RedBeanPHP\R::setup(sqlite:%appDir%/database.db)

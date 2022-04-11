@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{ifset title}{include title|stripHtml} | {/ifset}Tối ưu hóa</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css" integrity="sha512-mxrUXSjrxl8vm5GwafxcqTrEwO1/oBNU25l20GODsysHReZo4uhVISzAKzaABH6/tTfAxZrY2FprmeAP5UZY8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <style>
+    body {
+      font-family: 'DM Mono', monospace;
+    }
+  </style>
+  <body class="hold-transition layout-top-nav light-mode">
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand-md navbar-blue">
+        <div class="container">
+          <a n:href="Homepage:" class="navbar-brand">
+            <img src="https://seeklogo.com/images/I/ictu-logo-63F9D738D7-seeklogo.com.png" class="img-thumbnai" style=" width: 50px;height: 50px;object-fit: cover;">
+            <span class="brand-text font-weight-light" style="color: white">Tối ưu hóa</span>
+          </a>
+          <div style="border: 1px solid white; height: 30px;transform: translateX(-10%) "></div>
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" style="color: white; font-size: 20px; align-items: center;display: flex;">
+                    Chức năng
+                </a>
+                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                  <li><a n:href="Transport:" class="dropdown-item">Phương pháp cực tiểu chi phí</a></li>
+                  <li><a n:href="Bisection:" class="dropdown-item">Phương pháp chia đôi/mặt cát vàng</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- Right navbar links -->
+          
+        </div>
+      </nav>
+      <!-- /.navbar -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container">
+            <div class="row mb-2">
+              <div class="col-sm-9">
+                <h1 class="m-0">CHƯƠNG TRÌNH GIẢI BÀI TOÁN TỐI ƯU</h1>
+              </div>
+              <!-- /.col -->
+              <div class="col-sm-3">
+                <ol class="breadcrumb float-sm-right">
+                  {control menu:breadcrumbs}
+                </ol>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <!-- Main content -->
+        <div class="content" >
+          <div class="container" >
+              <div n:foreach="$flashes as $flash" class="callout callout-{$flash->type}">{$flash->message}</div>
+              {include content}
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-none d-sm-inline">
+          <i class="fa fa-heart" style="font-size:15px"></i> CNTT K18 CLC
+        </div>
+        <!-- Default to the left -->
+        <strong> &copy; 2022 Hà Văn Ninh và Thái Văn Cường</strong> 
+      </footer>
+    </div>
+    <!-- ./wrapper -->
+    {block scripts}
+      <!-- REQUIRED SCRIPTS -->
+      <!-- jQuery -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!-- Bootstrap 4 -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!-- AdminLTE App -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js" integrity="sha512-AJUWwfMxFuQLv1iPZOTZX0N/jTCIrLxyZjTRKQostNU71MzZTEPHjajSK20Kj1TwJELpP7gl+ShXw5brpnKwEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
+    {/block}
+  </body>
+</html>
