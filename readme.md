@@ -1,1 +1,3 @@
-## Nothing Project
+MÔN TỐI ƯU HOÁ VÀ ỨU DỤNG 
+HÀ VĂN NINH VÀ THÁI VĂN CƯỜNG
+CNTT k18 CLC

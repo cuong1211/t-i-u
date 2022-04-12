@@ -20,7 +20,8 @@ final class TransportPresenter extends BasePresenter {
         $form->addTextArea('in', 'Ma trận hệ số:')
             ->setHtmlAttribute('rows', 5)
             ->setRequired();
-        $form->addSubmit('submit', 'Giải');
+        
+        $form->addSubmit('submit', 'Kết quả');
         $form->onSuccess[] = [$this, 'formSucceeded'];
 
         return $form;
@@ -55,7 +56,7 @@ final class TransportPresenter extends BasePresenter {
 
         if (count($errors) > 0) {
             array_map(static function ($error) use ($that) {
-                $that->flashMessage($error, 'danger');
+                $that->flashMessage($error, 'alert alert-danger');
             }, $errors);
 
             $this->redirect('this');

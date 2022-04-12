@@ -7,8 +7,8 @@
   {foreach $result as $k => $data}
     <div class="card">
     <div class="card-body">
-    <h2>Bước {$k}:</h2>
-    <table style="width:100%" class="table table-bordered">
+    <h2>Bước {$k+1}:</h2>
+    <table style="width:100%" class="table table-dark table-bordered">
       {foreach $data[2] as $x => $cols}
         {first}
           <tr>
@@ -23,9 +23,9 @@
             {first}
               <td>{$data[1][$x]}</td>
             {/first}
-            <td n:class="$col !== 'x' ? table-success, ($data[1][$x] == 0 || $data[0][$y] == 0) && $col == 'x' ? table-danger">
+            <td n:class="$col !== 'x' ? table-primary, ($data[1][$x] == 0 || $data[0][$y] == 0) && $col == 'x' ? table-danger">
               <h3>{$col}</h3>
-              <span class="badge bg-green float-right">{$in[$x][$y]}</span>
+              <span class="badge bg-blue float-right">{$in[$x][$y]}</span>
             </td>
           {/foreach}
         </tr>
@@ -43,8 +43,8 @@
   {foreach $result2 as $k => $data}
     <div class="card">
     <div class="card-body">
-    <h2>Bước {$k}:</h2>
-    <table style="width:100%" class="table table-bordered">
+    <h2>Bước {$k+1}:</h2>
+    <table style="width:100%" class="table table-dark table-bordered">
       {foreach $data[2] as $x => $cols}
         {first}
           <tr>
@@ -59,9 +59,9 @@
             {first}
               <td>{$data[1][$x]}</td>
             {/first}
-            <td n:class="$col === 'T' ? table-primary, is_numeric($col) ? table-success, $col === 'L' ? table-danger">
+            <td n:class="$col === 'T' ? table-primary, is_numeric($col) ? table-primary, $col === 'L' ? table-danger">
               <h3>{$col}</h3>
-              <span class="badge bg-green float-right">{$in[$x][$y]}</span>
+              <span class="badge bg-blue float-right">{$in[$x][$y]}</span>
             </td>
           {/foreach}
         </tr>
@@ -74,5 +74,5 @@
 </div>
 </div>
 {ifset $total}
-  <div class="callout callout-success">Chi phí: {$total}</div>
+  <div class="alert alert-primary">Chi phí: {$total}</div>
 {/ifset}
